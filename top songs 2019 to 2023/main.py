@@ -1,11 +1,13 @@
 import csv
 import lyricsgenius as lg
+from entityExtraction import extractEntities
+
 
 client_access_token = 'W8c9UewEKOdTJ8aJclY3vPzBLkRl1OBh_rhgJtLQ4C0oftxsY7nGOFufkVS7nAmu'
 genius = lg.Genius(client_access_token)
 songWords = {}
-fileNames = ['2019.csv']
-             #, '2020.csv', '2021.csv', '2022.csv', '2023.csv']
+fileNames = fileNames = ['data/2019.csv']
+                         #',data/2020.csv', 'data/2021.csv', 'data/2022.csv', 'data/2023.csv']
 
 def getLyrics(title, artist):
     try:
@@ -29,6 +31,6 @@ for fileName in fileNames:
     for artist, title in rows:
         songWords[title] = {'artist': artist, 'words':[]}
         lyrics = getLyrics(title, artist)
-        words = lyrics.split() if lyrics else []
-        songWords[title]['words'] = words
+        entities = extractEntities(lyrics) if lyrics else []
+        songWords[title]['entities'] = entities
     print(songWords)
