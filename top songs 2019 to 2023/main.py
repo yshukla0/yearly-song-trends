@@ -22,7 +22,7 @@ def readFile(fileName):
     with open(fileName, 'r') as file:
         csvReader = csv.reader(file)
         lines = list(csvReader)
-        rows = [line[:2] for line in lines[1:3]] 
+        rows = [line[:2] for line in lines[7:8]] 
     return rows
 
 for fileName in fileNames:
@@ -33,4 +33,5 @@ for fileName in fileNames:
         lyrics = getLyrics(title, artist)
         entities = extractEntities(lyrics) if lyrics else []
         songWords[title]['entities'] = entities
+    print(lyrics)
     print(songWords)
