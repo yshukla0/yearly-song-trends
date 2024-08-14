@@ -1,6 +1,6 @@
 import csv
 import lyricsgenius as lg
-from entityExtraction import extractEntities
+from entityExtraction import findEntitiesMentioned
 
 
 client_access_token = 'W8c9UewEKOdTJ8aJclY3vPzBLkRl1OBh_rhgJtLQ4C0oftxsY7nGOFufkVS7nAmu'
@@ -23,7 +23,7 @@ def readSongFile(fileName):
     with open(fileName, 'r') as file:
         csvReader = csv.reader(file)
         lines = list(csvReader)
-        rows = [line[:2] for line in lines[7:8]] 
+        rows = [line[:2] for line in lines[3:4]] 
     return rows
 
 for fileName in songFileNames:
@@ -31,10 +31,9 @@ for fileName in songFileNames:
     print(f'{fileName} songs:')
     for artist, title in rows:
         songWords[title] = {'artist': artist, 'words':[]}
-        '''
+
         lyrics = getLyrics(title, artist)
-        entities = extractEntities(lyrics) if lyrics else []
+        entities = findEntitiesMentioned(lyrics) if lyrics else []
         songWords[title]['entities'] = entities
-        '''
-    print(lyrics)
+
     print(songWords)
