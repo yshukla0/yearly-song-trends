@@ -18,15 +18,14 @@ for fileName in entityFileNames:
 
 def findEntitiesMentioned(song):
     entitiedMentioned = {'brands': [], 'locations': []}
-    words = song.lower().split() 
+    words = song.split() 
 
     for word in words:
-        if word in entities['brands']:
-            entitiedMentioned['brands'].append(word)
-        elif word in entities['locations']:
-            entitiedMentioned['locations'].append(word)
+        if word.lower() in entities['brands'] and word.lower() not in entitiedMentioned['brands']:
+            if word[0].isupper():
+                entitiedMentioned['brands'].append(word.lower())
+        elif word.lower() in entities['locations'] and word.lower() not in entitiedMentioned['locations']:
+            if word[0].isupper():
+                entitiedMentioned['locations'].append(word.lower())
     
     return entitiedMentioned
-
-
-#print(entities)
