@@ -9,7 +9,7 @@ def readEntitiesFile(fileName):
         csvReader = csv.reader(file)
         for row in csvReader:
             if 'brands' in fileName: 
-                entities['brands'].append(row[0].lower())
+                entities['brands'].append(row[0].lower()) #handle alternate capitalizations
             else:
                 entities['locations'].append(row[0].lower())
     
@@ -17,15 +17,27 @@ for fileName in entityFileNames:
     readEntitiesFile(fileName)
 
 def findEntitiesMentioned(song):
-    entitiedMentioned = {'brands': [], 'locations': []}
+    entitiesMentioned = {'brands': [], 'locations': []}
     words = song.split() 
 
     for word in words:
-        if word.lower() in entities['brands'] and word.lower() not in entitiedMentioned['brands']:
-            if word[0].isupper():
-                entitiedMentioned['brands'].append(word.lower())
-        elif word.lower() in entities['locations'] and word.lower() not in entitiedMentioned['locations']:
-            if word[0].isupper():
-                entitiedMentioned['locations'].append(word.lower())
+        word = word.replace(',','')
+        wordLower = word.lower()
+        wordSingular = wordLower.rstrip('s') #Find plural mentions 
+
+        if (wordLower in entities['brands'] or 
+              wordSingular in entities['brands']): #Find plural mentions 
+                if word[0].isupper() and wordLower not in entitiesMentioned['brands']:
+                    entitiesMentioned['brands'].append(wordLower)
+
+        elif wordLower in entities['locations']:
+            if len(word) == 2: #Find 'LA' and 'SF' etc. correctly
+                if word.isupper():
+                    if (wordLower in entities['locations'] and 
+                        wordLower not in entitiesMentioned['locations']):
+                        entitiesMentioned['locations'].append(wordLower)
+            else:
+                if word[0].isupper() and wordLower not in entitiesMentioned['locations']:
+                    entitiesMentioned['locations'].append(wordLower)
     
-    return entitiedMentioned
+    return entitiesMentioned

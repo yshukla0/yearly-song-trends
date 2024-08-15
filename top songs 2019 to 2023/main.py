@@ -10,11 +10,14 @@ genius = lg.Genius(client_access_token)
 
 songWords = {}
 
+songFileNames = ['top songs data/2021.csv']
+'''
 songFileNames = ['top songs data/2019.csv', 'top songs data/2020.csv', 
                 'top songs data/2021.csv', 'top songs data/2022.csv', 
                 'top songs data/2023.csv']
-
+'''
 lyricsFileName = 'lyrics data/lyrics.csv'
+outputFileName = 'song words data/songWords.csv' 
 
 def getLyrics(title, artist):
     lyrics = findStoredLyrics(title, artist)
@@ -36,7 +39,7 @@ def readSongFile(fileName):
     with open(fileName, 'r') as file:
         csvReader = csv.reader(file)
         lines = list(csvReader)
-        rows = [line[:2] for line in lines[8:9]] 
+        rows = [line[:2] for line in lines[51:]] 
     return rows
 
 def storeLyrics(title, artist, lyrics):
@@ -52,6 +55,16 @@ def findStoredLyrics(title, artist):
                 return row[2]
     return None
 
+def saveSongWords(songWords, fileName):
+    with open(fileName, 'a', newline='') as file:
+        csvWriter = csv.writer(file)
+        csvWriter.writerow(['Title', 'Artist', 'Year', 'Entities']) 
+        for title, data in songWords.items():
+            artist = data['artist']
+            year = data['year']
+            entities = [data['entities']['brands'], data['entities']['locations']]  
+            csvWriter.writerow([title, artist, year, entities])
+
 for fileName in songFileNames:
     year = fileName[15:20]
     rows = readSongFile(fileName)
@@ -61,7 +74,7 @@ for fileName in songFileNames:
         lyrics = getLyrics(title, artist)
         if lyrics:
             songWords[title] = {'artist': artist, 'year': year}
-        entities = findEntitiesMentioned(lyrics) if lyrics else []
-        songWords[title]['entities'] = entities
-    print(songWords)
-    
+            entities = findEntitiesMentioned(lyrics)
+            songWords[title]['entities'] = entities
+
+saveSongWords(songWords, outputFileName)
