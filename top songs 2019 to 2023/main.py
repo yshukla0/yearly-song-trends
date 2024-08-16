@@ -11,7 +11,7 @@ genius = lg.Genius(client_access_token)
 songWords = {}
 
 
-songFileNames = ['top songs data/2020.csv'] 
+songFileNames = ['top songs data/2023.csv'] 
                  
                  #'top songs data/2020.csv', 
                 #'top songs data/2021.csv', 'top songs data/2022.csv', 
