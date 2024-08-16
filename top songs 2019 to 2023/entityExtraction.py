@@ -22,6 +22,7 @@ def findEntitiesMentioned(song):
 
     for word in words:
         word = word.replace(',','')
+        word = word.replace("'", '')
         wordLower = word.lower()
         wordSingular = wordLower.rstrip('s') #Find plural mentions 
 
