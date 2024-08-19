@@ -11,14 +11,14 @@ genius = lg.Genius(client_access_token)
 songWords = {}
 
 
-songFileNames = ['top songs data/2023.csv'] 
+songFileNames = ['top songs data/2019.csv'] 
                  
                  #'top songs data/2020.csv', 
                 #'top songs data/2021.csv', 'top songs data/2022.csv', 
                 #'top songs data/2023.csv']
 
 lyricsFileName = 'lyrics data/lyrics.csv'
-outputFileName = 'song words data/songWords.csv' 
+outputFileName = 'song words data/songWords2.csv' 
 
 def getLyrics(title, artist):
     lyrics = findStoredLyrics(title, artist)
