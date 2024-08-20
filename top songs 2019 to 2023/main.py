@@ -12,8 +12,8 @@ songWords = {}
 
 
 songFileNames = ['top songs data/2019.csv', 'top songs data/2020.csv', 
-                'top songs data/2021.csv', 'top songs data/2022.csv', 
-                'top songs data/2023.csv']
+                 'top songs data/2021.csv', 'top songs data/2022.csv', 
+                 'top songs data/2023.csv']
 
 lyricsFileName = 'lyrics data/lyrics.csv'
 outputFileName = 'song words data/songWords.csv' 
@@ -73,7 +73,8 @@ for fileName in songFileNames:
         lyrics = getLyrics(title, artist)
         if lyrics:
             songWords[title] = {'artist': artist, 'year': year}
-            entities = findEntitiesMentioned(lyrics)
+            firstLine = lyrics.find('\n')
+            entities = findEntitiesMentioned(lyrics[firstLine:]) #skip title line
             songWords[title]['entities'] = entities
 
 saveSongWords(songWords, outputFileName)
