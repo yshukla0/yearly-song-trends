@@ -10,10 +10,10 @@ genius = lg.Genius(client_access_token)
 
 songWords = {}
 
-
-songFileNames = ['top songs data/2019.csv', 'top songs data/2020.csv', 
-                 'top songs data/2021.csv', 'top songs data/2022.csv', 
-                 'top songs data/2023.csv']
+songFileNames = ['top songs data/2019.csv']
+#songFileNames = ['top songs data/2019.csv', 'top songs data/2020.csv', 
+ #                'top songs data/2021.csv', 'top songs data/2022.csv', 
+ #                'top songs data/2023.csv']
 
 lyricsFileName = 'lyrics data/lyrics.csv'
 outputFileName = 'song words data/songWords.csv' 
@@ -57,12 +57,13 @@ def findStoredLyrics(title, artist):
 def saveSongWords(songWords, fileName):
     with open(fileName, 'a', newline='') as file:
         csvWriter = csv.writer(file)
-        csvWriter.writerow(['Title', 'Artist', 'Year', 'Entities']) 
+        csvWriter.writerow(['Title', 'Artist', 'Year', 'Entities', 'Entity Lines']) 
         for title, data in songWords.items():
             artist = data['artist']
             year = data['year']
-            entities = [data['entities']['brands'], data['entities']['locations']]  
-            csvWriter.writerow([title, artist, year, entities])
+            entities = [data['entities']['brands'], data['entities']['locations']]
+            entityLines = data['entity lines']
+            csvWriter.writerow([title, artist, year, entities, entityLines])
 
 for fileName in songFileNames:
     year = fileName[15:20]
@@ -74,7 +75,7 @@ for fileName in songFileNames:
         if lyrics:
             songWords[title] = {'artist': artist, 'year': year}
             firstLine = lyrics.find('\n')
-            entities = findEntitiesMentioned(lyrics[firstLine:]) #skip title line
+            entities, entityLines = (findEntitiesMentioned(lyrics[firstLine:]))[0], (findEntitiesMentioned(lyrics[firstLine:]))[1]  #skip title line
             songWords[title]['entities'] = entities
-
+            songWords[title]['entity lines'] = entityLines
 saveSongWords(songWords, outputFileName)
