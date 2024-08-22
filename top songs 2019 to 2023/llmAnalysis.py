@@ -1,10 +1,15 @@
 
 import google.generativeai as genai
-import os
 import csv
 import time
 
-genai.configure(api_key='AIzaSyAAceK2tD3AZAO2UUzIY4R5AD3K-zKd1-4')
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+apiKey = os.getenv('MY_API_KEY')
+genai.configure(api_key=apiKey)
 
 model = genai.GenerativeModel('gemini-1.5-flash')
 
