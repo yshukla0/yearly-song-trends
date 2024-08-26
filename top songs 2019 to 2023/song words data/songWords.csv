@@ -946,3 +946,7 @@ Ti volevo dedicare,Rocco Hunt,2019.,"[{'coca cola'}, {'malibu'}]","{'brands': {'
 Leray,Trippie Redd,2019.,"[set(), set()]","{'brands': {}, 'locations': {}}"
 Gimme! Gimme! Gimme!,GAMPER & DADONI,2019.,"[set(), set()]","{'brands': {}, 'locations': {}}"
 Se iluminaba,Fred De Palma,2019.,"[set(), {'palma'}]","{'brands': {}, 'locations': {'palma': '[Pre-Coro: Fred De Palma con Ana Mena]'}}"
+Title,Artist,Year,Entities,Entity Lines
+Dance Monkey,Tones And I,/yshu,"[set(), set()]","{'brands': {}, 'locations': {}}"
+Title,Artist,Year,Entities,Entity Lines
+Blinding Lights,The Weeknd,/yshu,"[set(), set()]","{'brands': {}, 'locations': {}}"

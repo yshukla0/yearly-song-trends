@@ -1,7 +1,7 @@
 import csv
 
-entityFileNames = ['entities data/entities - brands.csv', 
-                    'entities data/entities - locations.csv']
+entityFileNames = ['/Users/Cameroon/yshukla0.github.io/yearly-song-trends/top songs 2019 to 2023/entities data/entities - brands.csv', 
+                   '/Users/Cameroon/yshukla0.github.io/yearly-song-trends/top songs 2019 to 2023/entities data/entities - locations.csv']
 
 entities = {'brands':set(), 'locations':set()}
 

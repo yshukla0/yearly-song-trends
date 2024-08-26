@@ -1,33 +1,23 @@
 Title,Artist,Year,Entity,Entity Type,Sentiment
-Señorita,Shawn Mendes,2019.,miami,locations,"skip 
-",Land in Miami
-The Box,Roddy Ricch,2019.,cadillac,brands,"Positive 
-",Cruise the city in a bulletproof Cadillac (Skrrt)
-The Box,Roddy Ricch,2019.,patek,brands,"skip 
-","Patek like the sea, forgive me"
-The Box,Roddy Ricch,2019.,rollie,brands,"Positive 
-",I just made the Rollie plain like a landing strip
-LA CANCIÓN,J Balvin,2019.,chanel,brands,"skip 
-","Tú brincando mojaíta', sudando Chanel"
-Wow.,Post Malone,2019.,lambo,brands,"Positive 
-",750 Lambo in the Utah snow (Skrrt)
-Wow.,Post Malone,2019.,utah,locations,"skip 
-",750 Lambo in the Utah snow (Skrrt)
-Old Town Road,Lil Nas X,2019.,porsche,brands,"skip 
-",You can whip your Porsche
-Old Town Road,Lil Nas X,2019.,gucci,brands,"skip 
-",Cowboy hat from Gucci
-Old Town Road,Lil Nas X,2019.,wrangler,brands,"skip 
-",Wrangler on my booty
-ROXANNE,Arizona Zervas,2019.,malibu,locations,"Positive 
-","Malibu, uh, Malibu"
-ROXANNE,Arizona Zervas,2019.,la,locations,"Neutral 
-","In LA, yeah, got no brakes, yeah"
-Beautiful People,Ed Sheeran,2019.,lamborghinis,brands,"skip 
-",Lamborghinis and their rented Hummers
-Beautiful People,Ed Sheeran,2019.,hummers,brands,"skip 
-",Lamborghinis and their rented Hummers
-Beautiful People,Ed Sheeran,2019.,l.a.,locations,"Neutral 
-","L.A., mmm"
-Ransom,Lil Tecca,2019.,phantom,brands,"Neutral 
-",Hop outside a Ghost and hop up in a Phantom
+China,Anuel AA,2019.,cartagena,locations,"Positive 
+","De R.D. hasta Cartagena (Come on, come on)"
+Dior,Pop Smoke,2019.,dior,brands,"Positive 
+","Christian Dior, Dior"
+Streets,Doja Cat,2019.,paris,locations,"Positive 
+","I could take you to the parents, then to Paris"
+No Guidance,Chris Brown,2019.,birkin,brands,"Positive 
+","Lil' baby in her bag, in her Birkin (Ayy)"
+If I Can't Have You,Shawn Mendes,2019.,toronto,locations,"Positive 
+",I'm in Toronto and I got this view
+EARFQUAKE,"Tyler, The Creator",2019.,tiffany,brands,"Negative 
+","These diamonds not Tiffany, huh, yeah (Woah, woah)"
+Lalala,Y2K,2019.,gucci,brands,"skip 
+","Got that Gucci on my body, now she tryna pipe me, woo"
+Lalala,Y2K,2019.,canada,locations,"Positive 
+","Baby so cold, he from the north, he from the Canada"
+RITMO (Bad Boys For Life),Black Eyed Peas,2019.,reebok,brands,"Negative 
+",No son ni Reebok ni son Nike (No)
+RITMO (Bad Boys For Life),Black Eyed Peas,2019.,nike,brands,"Negative 
+",No son ni Reebok ni son Nike (No)
+RITMO (Bad Boys For Life),Black Eyed Peas,2019.,mexico,locations,"skip 
+",I learned that shit down in Mexico

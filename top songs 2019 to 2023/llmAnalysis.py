@@ -13,13 +13,13 @@ genai.configure(api_key=apiKey)
 
 model = genai.GenerativeModel('gemini-1.5-flash')
 
-songWordsFile = 'song words data/songWords.csv'
-sentimentOutputFile = 'song words data/sentimentAnalysis.csv'
+songWordsFile = '/Users/Cameroon/yshukla0.github.io/yearly-song-trends/top songs 2019 to 2023/song words data/songWords.csv'
+sentimentOutputFile = '/Users/Cameroon/yshukla0.github.io/yearly-song-trends/top songs 2019 to 2023/song words data/sentimentAnalysis.csv'
 
 def readSongWordsFile(fileName):
     with open(fileName, 'r') as file:
         csvReader = csv.reader(file)
-        rows = list(csvReader)[1:]  
+        rows = list(csvReader)[34:]  
     return rows
 
 def analyzeEntitiesSentiment():
